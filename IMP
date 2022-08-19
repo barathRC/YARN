@@ -9,11 +9,15 @@ Resource Manager (RM) - Not alike but similar to JT
 One per cluster
 Controls App start-up
 Schedules resources on the slave nodes
+Runs a resource schedular which determines how resources are allocated
 
 Node Manager (NM) - Not alike but similar to TT
 One per slave node
 Starts all orocess for running the App
 Manages resources on the slave nodes
+Register it to the RM and provides details on availabel resources.
+Monitors resource usage and kills task over consuming resources.
+Stores app logs to HDFS.
 
 Job History Server -
 One per cluster
