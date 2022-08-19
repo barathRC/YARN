@@ -29,6 +29,7 @@ Archival of job log files.
 10) AM is one per cluster and run in its own container.
 11) AM is responsible for requesting additional containers from RM.
 12) AM then starts in the same container and runs for the wholelife span of the app/ job.
-13) AM registers itself with RM. Sends periodic heartbeats to the RM.
-14) Containers allocate CPU and Mem on a slave node
-15) Containers actually run the task
+13) AM registers itself with RM. Sends periodic heartbeats to the RM. AM knows where the data blocks resides in HDFS.
+14) Containers allocate CPU and Mem on a slave node. Containers actually run the task.
+15) After the containers are allocated at specific DN the AM asks the specific NMs in the DNs to start the tasks (Map tasks) in the same containers 
+that was requested.
