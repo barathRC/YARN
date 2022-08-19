@@ -33,3 +33,6 @@ Archival of job log files.
 14) Containers allocate CPU and Mem on a slave node. Containers actually run the task.
 15) After the containers are allocated at specific DN the AM asks the specific NMs in the DNs to start the tasks (Map tasks) in the same containers 
 that was requested.
+16) Once the MAP tasks are completed the intermediate results are persisted locally. The containers are terminated 
+and the resources are released to the RM.
+16) The AM then requests for RM to provision containers for Reduce tasks. 
