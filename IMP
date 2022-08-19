@@ -1,9 +1,9 @@
 
-Hadoop V2 provides improvement over V1s MapReduce with YARN Yet Another Resource Negotiator.
+1) Hadoop V2 provides improvement over V1s MapReduce with YARN Yet Another Resource Negotiator.
 
-YARN supports distributed processing frameworks such as MapRed, Impala, Spark, etc.
+2) YARN supports distributed processing frameworks such as MapRed, Impala, Spark, etc.
 
-YARN Daemons:-
+3) YARN Daemons:-
 
 Resource Manager (RM) - Not alike but similar to JT 
 One per cluster
@@ -18,3 +18,13 @@ Manages resources on the slave nodes
 Job History Server -
 One per cluster
 Archival of job log files.
+
+4) RM and Job History tracker resides in NameNode. 
+5) In large clusters, The RM and JHT might be assigned a single machine that acts as a support machine with other daemons.
+6) NM runs on each slave datanodes.
+7) When an App is submitted to the YARN cluster, the RM allocates the containers as per the config mentioned in the submitted app.
+8) Containers allocate CPU and Mem on a slave node
+9) Containers actually run the task
+10) Application master is spun up in one of the Slave Node DN having Node Manager which runs as a JVM process.
+11) AM is one per cluster and run in its own container.
+23) AM is responsible for requesting additional containers from RM.
