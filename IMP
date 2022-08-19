@@ -71,5 +71,25 @@ Logs are ordered by application/job
 Web UI (Job History) or CLI can be used to view logs. 
 Log config is disabled by default.
 
+CLI commands -
+View YARN apps:-
+yarn application -list                 (Connects to RM at hostname:port)
+yarn application -list -appStates ALL
+yarn application -list -appStates KILLED
+yarn application -status <APP ID>
+yarn application -kill <APP ID>
+
+View YARN app LOGS:-
+yarn logs -applicationID <APP ID>
+
+YARN Web UI:-
+
+RM Web UI
+Active Nodes: NM communicating with RM
+Unhealthy Nodes: NM not communicating with RM
+
+JobHistory Server Web UI
+yarn.resourcemanager.webapp.address yarn-site.xml  Hostname and port for RM WebUI
+mapreduce.jobhistory.webapp.address mapred-site.xml  Hostname and port for mapRed JH Server WebUI
 
 
