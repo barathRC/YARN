@@ -23,8 +23,12 @@ Archival of job log files.
 5) In large clusters, The RM and JHT might be assigned a single machine that acts as a support machine with other daemons.
 6) NM runs on each slave datanodes.
 7) When an App is submitted to the YARN cluster, the RM allocates the containers as per the config mentioned in the submitted app.
-8) Containers allocate CPU and Mem on a slave node
-9) Containers actually run the task
-10) Application master is spun up in one of the Slave Node DN having Node Manager which runs as a JVM process.
-11) AM is one per cluster and run in its own container.
-23) AM is responsible for requesting additional containers from RM.
+   Our app knows how to submit the job to YARN clutser RM using the yarn-site.xml config file (HOSTNAME CONFIG IN IT).
+8) RM spins a container in one of the slave DN which has Node Manager in it and asks the NM to start AM.
+9) Application master is spun up in one of the Slave Node DN having Node Manager which runs as a JVM process.
+10) AM is one per cluster and run in its own container.
+11) AM is responsible for requesting additional containers from RM.
+12) AM then starts in the same container and runs for the wholelife span of the app/ job.
+13) AM registers itself with RM. Sends periodic heartbeats to the RM.
+14) Containers allocate CPU and Mem on a slave node
+15) Containers actually run the task
