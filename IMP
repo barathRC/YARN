@@ -1,0 +1,20 @@
+
+Hadoop V2 provides improvement over V1s MapReduce with YARN Yet Another Resource Negotiator.
+
+YARN supports distributed processing frameworks such as MapRed, Impala, Spark, etc.
+
+YARN Daemons:-
+
+Resource Manager (RM) - Not alike but similar to JT 
+One per cluster
+Controls App start-up
+Schedules resources on the slave nodes
+
+Node Manager (NM) - Not alike but similar to TT
+One per slave node
+Starts all orocess for running the App
+Manages resources on the slave nodes
+
+Job History Server -
+One per cluster
+Archival of job log files.
