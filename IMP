@@ -37,3 +37,9 @@ The num of Map tasks are equal to the num of data splits/ data blocks.
 16) Once the MAP tasks are completed the intermediate results are persisted locally. The containers are terminated 
 and the resources are released to the RM.
 16) The AM then requests for RM to provision containers for Reduce tasks. 
+17) Containers for Reducer tasks can be spun up anywhere in the cluster since the Map task persisted data is local to the node 
+where the data block was located.
+18) This involves local persisted intermediate data from Map tasks to travel via the network to the reducer task container. 
+this is shuffle and cant be avoided.
+19) Data is written into HDFS as part-r-000000 files.
+20) Once, reduce tasks are completed, AM notifes JHT server abt the completion. The client is now notified abt the job completion.
