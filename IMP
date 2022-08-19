@@ -27,10 +27,13 @@ CONFIG:-
 <name>yarn.resourcemanager.hostname - <value>HADOOPM1:8032 Server name for RM
 <name>yarn.nodemanager.local-dirs - <value>/disks/yarn/nm Local files and itermed data and distributed cache are stored
 <name>yarn.nodemanager.aux-services - <value>mapreduce_shuffle one ore more aux services that support app framework running under YARN
-<name>yarn.log-aggregartion.enable 
-<name>yarn.nodemanager.remote-app-log-dir
-<name>yarn.nodemanager.log-dirs
+
+<name>yarn.log-aggregartion.enable - Enables for log aggregations.
+<name>yarn.nodemanager.remote-app-log-dir - HDFS loc to which Node Managers should aggregare their logs to
+<name>yarn.nodemanager.log-dirs - Local directory where NM stores local logs.
+yarn.log-aggregation.retain-seconds - Time dur to wait before deleting aggregated log files. Disbaled by -1.
 These control YARN log aggregation
+
 mapred-site.xml 
 <name>mapred.framework.name <value>YARN default is local. Framework
 <name>yarn.app.mapreduce.am.staging-dir <value>/user HDFS dir where user jar files are stored. these are needed by app, clients and AM. 
@@ -60,3 +63,13 @@ where the data block was located.
 this is shuffle and cant be avoided.
 19) Data is written into HDFS as part-r-000000 files.
 20) Once, reduce tasks are completed, AM notifes JHT server abt the completion. The client is now notified abt the job completion.
+
+
+LOGS:-
+YARN aggregates local logs from NodeManagers to a central HDFS location that is accessible by all the nodes.
+Logs are ordered by application/job
+Web UI or CLI can be used to view logs. 
+Log config is disabled by default.
+
+
+
