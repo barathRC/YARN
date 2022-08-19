@@ -34,6 +34,8 @@ These control YARN log aggregation
 mapred-site.xml 
 <name>mapred.framework.name <value>YARN default is local. Framework
 <name>yarn.app.mapreduce.am.staging-dir <value>/user HDFS dir where user jar files are stored. these are needed by app, clients and AM. 
+<name>mapred.jobhistory.address <value>HADOOPM1:10020 Address and port used for cluster internal communication with JHServer. 
+
 4) RM and Job History tracker resides in NameNode. 
 5) In large clusters, The RM and JHT might be assigned a single machine that acts as a support machine with other daemons.
 6) NM runs on each slave datanodes.
