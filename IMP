@@ -68,7 +68,7 @@ this is shuffle and cant be avoided.
 LOGS:-
 YARN aggregates local logs from NodeManagers to a central HDFS location that is accessible by all the nodes.
 Logs are ordered by application/job
-Web UI or CLI can be used to view logs. 
+Web UI (Job History) or CLI can be used to view logs. 
 Log config is disabled by default.
 
 
