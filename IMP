@@ -23,11 +23,22 @@ Job History Server -
 One per cluster
 Archival of job log files.
 
+CONFIG:-
+<name>yarn.resourcemanager.hostname - <value>HADOOPM1:8032 Server name for RM
+<name>yarn.nodemanager.local-dirs - <value>/disks/yarn/nm Local files and itermed data and distributed cache are stored
+<name>yarn.nodemanager.aux-services - <value>mapreduce_shuffle one ore more aux services that support app framework running under YARN
+<name>yarn.log-aggregartion.enable 
+<name>yarn.nodemanager.remote-app-log-dir
+<name>yarn.nodemanager.log-dirs
+These control YARN log aggregation
+mapred-site.xml 
+<name>mapred.framework.name <value>YARN default is local. Framework
+<name>yarn.app.mapreduce.am.staging-dir <value>/user HDFS dir where user jar files are stored. these are needed by app, clients and AM. 
 4) RM and Job History tracker resides in NameNode. 
 5) In large clusters, The RM and JHT might be assigned a single machine that acts as a support machine with other daemons.
 6) NM runs on each slave datanodes.
 7) When an App is submitted to the YARN cluster, the RM allocates the containers as per the config mentioned in the submitted app.
-   Our app knows how to submit the job to YARN clutser RM using the yarn-site.xml config file (HOSTNAME CONFIG IN IT).
+   Our app knows how to submit the job to YARN clutser RM using the yarn-site.xml config file (yarn.resourcemanager.hostname CONFIG IN IT).
 8) RM spins a container in one of the slave DN which has Node Manager in it and asks the NM to start AM.
 9) Application master is spun up in one of the Slave Node DN having Node Manager which runs as a JVM process.
 10) AM is one per cluster and run in its own container.
