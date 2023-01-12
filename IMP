@@ -13,7 +13,7 @@ Runs a resource schedular which determines how resources are allocated
 
 Node Manager (NM) - Not alike but similar to TT
 One per slave node
-Starts all orocess for running the App
+Starts all processes for running the App
 Manages resources on the slave nodes
 Register it to the RM and provides details on availabel resources.
 Monitors resource usage and kills task over consuming resources.
